@@ -1,0 +1,36 @@
+﻿<Window x:Class="JeuPendu.Preferences"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JeuPendu"
+        mc:Ignorable="d"
+        Title="Preferences" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFCDEDFD" Offset="0"/>
+                <GradientStop Color="#FFFFEC82" Offset="0.37"/>
+                <GradientStop Color="#FFFFCFD2" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Content="Preferences" HorizontalAlignment="Center" Margin="0,52,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <GroupBox Header="Langue" Margin="178,150,451,174" FontWeight="Bold">
+            <Grid HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="85">
+                <RadioButton x:Name="rbAnglais" Content="Anglais" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,38,0,0"/>
+                <RadioButton x:Name="rbFrancais" Content="Francais" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,12,0,0"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Niveau de jeu" Margin="431,150,184,174" FontWeight="Bold">
+            <Grid Height="64" VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Margin="24,0,0,0">
+                <RadioButton x:Name="rbFacile" Content="Facile" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <RadioButton x:Name="rbMoyen" Content="Moyen" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <RadioButton x:Name="rbDifficile" Content="Difficile" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="btnDico" Content="Dictionnaire" HorizontalAlignment="Left" Margin="254,322,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.001,0.653" Width="92"/>
+        <Button x:Name="btnSave" Content="Enregistrer" HorizontalAlignment="Left" Margin="254,359,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.001,0.653" Width="92"/>
+        <Button x:Name="btnCancel" Content="Annuler" HorizontalAlignment="Left" Margin="434,322,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.001,0.653" Width="92" Click="btnCancel_Click"/>
+        <Button x:Name="btnQuit" Content="Quitter" HorizontalAlignment="Left" Margin="434,359,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.001,0.653" Width="92" Click="btnQuit_Click"/>
+    </Grid>
+</Window>

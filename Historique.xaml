@@ -1,0 +1,31 @@
+﻿<Window x:Class="JeuPendu.Historique"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JeuPendu"
+        mc:Ignorable="d"
+        Title="Historique" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFCDEDFD" Offset="0"/>
+                <GradientStop Color="#FFFFEC82" Offset="0.37"/>
+                <GradientStop Color="#FFFFCFD2" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid x:Name="dgHistorique" HorizontalAlignment="Left" Height="295" Margin="69,60,0,0" VerticalAlignment="Top" Width="684" AutoGenerateColumns="False" ItemsSource="{Binding}" Background="{x:Null}" BorderBrush="#FF688CAF">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mot" Binding="{Binding mot}" />
+                <DataGridTextColumn Header="Pointage" Binding="{Binding score}" />
+                <DataGridTextColumn Header="Erreurs" Binding="{Binding erreurs}" />
+                <DataGridTextColumn Header="Date" Binding="{Binding date}" />
+                <DataGridTextColumn Header="Temps" Binding="{Binding temps}" />
+                <DataGridTextColumn Header="Temps" Binding="{Binding reussi}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="bnt_accueil" Content="Accueil" HorizontalAlignment="Left" Margin="447,383,0,0" VerticalAlignment="Top" Width="118" Click="bnt_accueil_Click"/>
+        <Button x:Name="bnt_quit" Content="Quitter" HorizontalAlignment="Left" Margin="612,383,0,0" VerticalAlignment="Top" Width="118" Click="bnt_quit_Click"/>
+
+    </Grid>
+</Window>

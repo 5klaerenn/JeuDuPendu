@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="penduModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DictionnaireTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mot" Type="nchar" MaxLength="25" />
+    <Property Name="idLangue" Type="int" />
+    <Property Name="idNiveau" Type="int" />
+  </EntityType>
+  <EntityType Name="HistoriqueTable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mot" Type="nchar" MaxLength="25" />
+    <Property Name="score" Type="int" />
+    <Property Name="erreurs" Type="int" />
+    <Property Name="temps" Type="int" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="reussi" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Langue">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="langue" Type="nchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Niveau">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="niveau" Type="nchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Parametres">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="idLangue" Type="int" Nullable="false" />
+    <Property Name="idNiveau" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Mot_Langue">
+    <End Role="Langue" Type="Self.Langue" Multiplicity="0..1" />
+    <End Role="DictionnaireTable" Type="Self.DictionnaireTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Langue">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DictionnaireTable">
+        <PropertyRef Name="idLangue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mot_Niveau">
+    <End Role="Niveau" Type="Self.Niveau" Multiplicity="0..1" />
+    <End Role="DictionnaireTable" Type="Self.DictionnaireTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Niveau">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DictionnaireTable">
+        <PropertyRef Name="idNiveau" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="penduModelStoreContainer">
+    <EntitySet Name="DictionnaireTable" EntityType="Self.DictionnaireTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistoriqueTable" EntityType="Self.HistoriqueTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Langue" EntityType="Self.Langue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Niveau" EntityType="Self.Niveau" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parametres" EntityType="Self.Parametres" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Mot_Langue" Association="Self.FK_Mot_Langue">
+      <End Role="Langue" EntitySet="Langue" />
+      <End Role="DictionnaireTable" EntitySet="DictionnaireTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mot_Niveau" Association="Self.FK_Mot_Niveau">
+      <End Role="Niveau" EntitySet="Niveau" />
+      <End Role="DictionnaireTable" EntitySet="DictionnaireTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

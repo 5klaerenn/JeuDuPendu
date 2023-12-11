@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="penduModelStoreContainer" CdmEntityContainer="penduEntities">
+    <EntitySetMapping Name="DictionnaireTables">
+      <EntityTypeMapping TypeName="penduModel.DictionnaireTable">
+        <MappingFragment StoreEntitySet="DictionnaireTable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mot" ColumnName="mot" />
+          <ScalarProperty Name="idLangue" ColumnName="idLangue" />
+          <ScalarProperty Name="idNiveau" ColumnName="idNiveau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoriqueTables">
+      <EntityTypeMapping TypeName="penduModel.HistoriqueTable">
+        <MappingFragment StoreEntitySet="HistoriqueTable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mot" ColumnName="mot" />
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="erreurs" ColumnName="erreurs" />
+          <ScalarProperty Name="temps" ColumnName="temps" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="reussi" ColumnName="reussi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Langues">
+      <EntityTypeMapping TypeName="penduModel.Langue">
+        <MappingFragment StoreEntitySet="Langue">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="langue1" ColumnName="langue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Niveaux">
+      <EntityTypeMapping TypeName="penduModel.Niveau">
+        <MappingFragment StoreEntitySet="Niveau">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="niveau1" ColumnName="niveau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parametres">
+      <EntityTypeMapping TypeName="penduModel.Parametre">
+        <MappingFragment StoreEntitySet="Parametres">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idLangue" ColumnName="idLangue" />
+          <ScalarProperty Name="idNiveau" ColumnName="idNiveau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
