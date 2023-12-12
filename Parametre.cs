@@ -9,9 +9,7 @@
 
 namespace JeuPendu
 {
-    using System;
-    using System.Collections.Generic;
-    
+
     public partial class Parametre
     {
         public int id { get; set; }

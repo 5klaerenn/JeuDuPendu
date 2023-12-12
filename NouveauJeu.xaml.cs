@@ -36,6 +36,11 @@ namespace JeuPendu {
             this.bdd = bdd;
             genererBouttons();
             imgJeu.Source = new BitmapImage(new Uri(@"/img/accueil.jpg", UriKind.Relative));
+            var choixLangue = Application.Current.Properties["langue"];
+            var choixNiveau = Application.Current.Properties["niveau"];
+
+            Console.WriteLine(choixLangue);
+            Console.WriteLine(choixNiveau);
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e) {
