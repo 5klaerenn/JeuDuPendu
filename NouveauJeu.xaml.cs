@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO.Packaging;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -23,8 +24,8 @@ namespace JeuPendu {
         Accueil acc;
         penduEntities bdd;
 
-        string mot;
-        string motcache;
+        string mot, motcache;
+        int choixLangue, choixNiveau;
         int essais = 0;
         int score = 0;
         DateTime heureDebut;
@@ -32,15 +33,13 @@ namespace JeuPendu {
 
         public NouveauJeu(Accueil accueil, penduEntities bdd) {
             InitializeComponent();
+
             acc = accueil;
             this.bdd = bdd;
             genererBouttons();
+            genererParametres();
             imgJeu.Source = new BitmapImage(new Uri(@"/img/accueil.jpg", UriKind.Relative));
-            var choixLangue = Application.Current.Properties["langue"];
-            var choixNiveau = Application.Current.Properties["niveau"];
 
-            Console.WriteLine(choixLangue);
-            Console.WriteLine(choixNiveau);
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e) {
@@ -56,7 +55,6 @@ namespace JeuPendu {
                 mot = choisirMot();
                 motcache = remplacerMot(mot);
                 lblMot.Content = motcache;
-                lblLettre.Content = "#";
                 lblScore.Content = score;
                 heureDebut = DateTime.Now;
             }
@@ -78,6 +76,14 @@ namespace JeuPendu {
                 Grid.SetColumn(btn, columnIndex);
                 Grid.SetRow(btn, rowIndex);
             }
+        }
+
+        private void genererParametres() {
+            Parametre param = bdd.Parametres.Find(1);
+            choixLangue = param.idLangue;
+            choixNiveau = param.idNiveau;
+            lblLangue.Content = bdd.Langues.Find(param.idLangue).langue1;
+            lblNiveau.Content = bdd.Niveaux.Find(param.idNiveau).niveau1;   
         }
 
         private void AlphabetButton_Click(object sender, RoutedEventArgs e) {
@@ -115,8 +121,6 @@ namespace JeuPendu {
                 }
             }
 
-            lblLettre.Content = selectedLetter;
-
         }
 
         private void desactiverBouttons() {
@@ -145,8 +149,13 @@ namespace JeuPendu {
         }
 
         private string choisirMot() {
+            
             string motChoisi;
-            var listeMots = bdd.DictionnaireTables.ToList();
+
+            var query = from d in bdd.DictionnaireTables
+                        where d.idLangue == choixLangue && d.idNiveau == choixNiveau
+                        select d;
+            var listeMots = query.ToList();
 
             try {
                 Random random = new Random();
@@ -160,7 +169,6 @@ namespace JeuPendu {
         }
 
         private string remplacerMot(string mot) {
-            lblControl.Content = mot;
             char[] listeC = mot.ToCharArray();
             string result = new string('#', listeC.Length); // Remplacement de chaque caractère par #
             return result;
@@ -177,17 +185,13 @@ namespace JeuPendu {
                         changement++;
                     }
             }
-
             if (changement == 0) {
                 essais++;
             } else {
                 score += changement;
             }
-
             return new string(test); // Reconstruction de la chaine de caractères 
         }
-
-
         
         private void btnPrefs_Click(object sender, RoutedEventArgs e) {
             PrefsJeu prefs = new PrefsJeu(acc, bdd);

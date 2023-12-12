@@ -37,33 +37,26 @@ namespace JeuPendu {
                     int lang = rbAnglais.IsChecked == true ? 2 : 1;
                     int lvl = rbFacile.IsChecked == true ? 1 : (rbMoyen.IsChecked == true ? 2 : 3);
 
-                    Parametre pref = findParam(lang, lvl);
-                    Parametre nPref = pref ?? new Parametre();
 
-                    if (pref == null) {
-                        nPref.idLangue = lang;
-                        nPref.idNiveau = lvl;
-                        bdd.Parametres.Add(nPref);
+                    /*
+                     * Puisqu'on veut que les préférences restent même après la fermeture de la session, j'ai choisi ici 
+                     * de me limiter à juste updater l'entrée unique de la base de données. 
+                    */
+                    Parametre pref = bdd.Parametres.Find(1);
+                    pref.idLangue = lang;
+                    pref.idNiveau = lvl;
 
-                        try {
-                            bdd.SaveChanges();
-                            MessageBox.Show("Préférences sauvegardées.",
-                              "Information",
-                              MessageBoxButton.OK,
-                              MessageBoxImage.Information);
-                        }
-                        catch (Exception ex) {
-                            Console.WriteLine(ex);
-                            MessageBox.Show(ex.Message);
-                        }
+                    try {
+                        bdd.SaveChanges();
+                        MessageBox.Show("Préférences mises à jour. \nRetournez à l'accueil pour commencer une partie.",
+                          "Information",
+                          MessageBoxButton.OK,
+                          MessageBoxImage.Information);
                     }
-                    else {
-                        nPref = pref;
+                    catch (Exception ex) {
+                        Console.WriteLine(ex);
+                        MessageBox.Show(ex.Message);
                     }
-
-
-                    Application.Current.Properties["langue"] = nPref.idLangue;
-                    Application.Current.Properties["niveau"] = nPref.idNiveau;
 
                 }
                 else {
@@ -79,11 +72,6 @@ namespace JeuPendu {
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
             }
-        }
-
-        private Parametre findParam(int langue, int difficulty) {
-            Parametre param = bdd.Parametres.SingleOrDefault(s => s.idLangue == langue && s.idNiveau == difficulty);
-            return param;
         }
 
         private void btnQuit_Click(object sender, RoutedEventArgs e) {
@@ -112,7 +100,7 @@ namespace JeuPendu {
             if (result == MessageBoxResult.Yes) {
                 this.Close();
                 acc.Show();
-                
+
             }
         }
     }
