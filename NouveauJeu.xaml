@@ -1,0 +1,49 @@
+﻿<Window x:Class="JeuPendu.NouveauJeu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JeuPendu"
+        mc:Ignorable="d"
+        Title="NouveauJeu" Height="600" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Height="600" Width="800">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFCDEDFD" Offset="0"/>
+                <GradientStop Color="#FFFFEC82" Offset="0.37"/>
+                <GradientStop Color="#FFFFCFD2" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image x:Name="imgJeu" HorizontalAlignment="Left" Height="271" Margin="50,78,0,0" VerticalAlignment="Top" Width="211"/>
+        <Label Content="Score : " HorizontalAlignment="Left" Margin="456,35,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblScore" Content="0" HorizontalAlignment="Left" Margin="530,35,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFF7500" FontSize="14"/>
+        <Label Content="Mot à trouver : " HorizontalAlignment="Left" Margin="382,110,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblMot" Content="######" HorizontalAlignment="Left" Margin="507,106,0,0" VerticalAlignment="Top" Width="250" FontSize="16" Foreground="#FFFF7500" FontWeight="Bold"/>
+        <Grid x:Name="alphabet" Margin="321,196,43,186">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Label x:Name="lblLettre" Content="" HorizontalAlignment="Left" Margin="128,374,0,0" VerticalAlignment="Top" Foreground="#FFFF7500" FontSize="18" FontWeight="Bold" Height="48" Width="64"/>
+        <Button x:Name="btnStart" Content="Nouvelle Partie" Margin="466,453,230,118" Click="btnStart_Click"/>
+        <Button x:Name="btnPrefs" Content="Preferences" HorizontalAlignment="Left" Margin="115,423,0,0" VerticalAlignment="Top" Width="87" Click="btnPrefs_Click"/>
+        <Button x:Name="btnHistorique" Content="Historique" HorizontalAlignment="Left" Margin="115,463,0,0" VerticalAlignment="Top" Width="87" Click="btnHistorique_Click"/>
+        <Button x:Name="btnQuit" Content="Quitter" HorizontalAlignment="Left" Margin="115,503,0,0" VerticalAlignment="Top" Width="87" Click="btnQuit_Click"/>
+        <Label x:Name="lblControl" Content="Label" HorizontalAlignment="Left" Margin="362,524,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTest" Content="Label" HorizontalAlignment="Left" Margin="539,524,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.452,-0.279"/>
+        <Label x:Name="lblResult" HorizontalAlignment="Left" Margin="463,142,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+    </Grid>
+</Window>

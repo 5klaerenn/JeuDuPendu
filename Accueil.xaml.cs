@@ -33,8 +33,26 @@ namespace JeuPendu {
         }
 
         private void btn_prefs_Click(object sender, RoutedEventArgs e) {
-            Preferences prefs = new Preferences(this, bdd);
+            PrefsJeu prefs = new PrefsJeu(this, bdd);
             prefs.ShowDialog();
         }
+
+        private void bnt_jouer_Click(object sender, RoutedEventArgs e) {
+            NouveauJeu jeu = new NouveauJeu(this, bdd);
+            jeu.ShowDialog();
+        }
+
+        private void btnQuit_Click(object sender, RoutedEventArgs e) {
+            MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment quitter ?",
+                                                            "Information",
+                                                            MessageBoxButton.YesNo,
+                                                            MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes) {
+                Application.Current.Shutdown();
+            }
+        }
+
+
     }
 }

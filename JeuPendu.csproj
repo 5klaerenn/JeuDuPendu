@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0B464D55-6769-4A3B-B652-5DE3FFFCF2C8}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>JeuPendu</RootNamespace>
     <AssemblyName>JeuPendu</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -33,6 +33,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -81,11 +84,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="JeuPendu.xaml">
+    <Page Include="NouveauJeu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Preferences.xaml">
+    <Page Include="PrefsJeu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,8 +118,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Jeu.edmx</DependentUpon>
     </Compile>
-    <Compile Include="JeuPendu.xaml.cs">
-      <DependentUpon>JeuPendu.xaml</DependentUpon>
+    <Compile Include="NouveauJeu.xaml.cs">
+      <DependentUpon>NouveauJeu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Langue.cs">
       <DependentUpon>Jeu.tt</DependentUpon>
@@ -127,8 +130,8 @@
     <Compile Include="Parametre.cs">
       <DependentUpon>Jeu.tt</DependentUpon>
     </Compile>
-    <Compile Include="Preferences.xaml.cs">
-      <DependentUpon>Preferences.xaml</DependentUpon>
+    <Compile Include="PrefsJeu.xaml.cs">
+      <DependentUpon>PrefsJeu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -164,7 +167,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\acceuil.jpg" />
+    <Resource Include="img\accueil.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\err01.jpg" />
     <Resource Include="img\err02.jpg" />
     <Resource Include="img\err03.jpg" />

@@ -16,12 +16,12 @@ namespace JeuPendu {
     /// <summary>
     /// Logique d'interaction pour Preferences.xaml
     /// </summary>
-    public partial class Preferences : Window {
+    public partial class PrefsJeu : Window {
 
         Accueil acc;
         penduEntities bdd;
 
-        public Preferences(Accueil acc, penduEntities bdd) {
+        public PrefsJeu(Accueil acc, penduEntities bdd) {
             InitializeComponent();
             this.acc = acc;
             this.bdd = bdd;

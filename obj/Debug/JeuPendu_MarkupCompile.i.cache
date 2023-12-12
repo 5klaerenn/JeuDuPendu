@@ -1,7 +1,7 @@
 ﻿JeuPendu
 
 
-winexe
+exe
 C#
 .cs
 C:\Users\Sklaerenn\Documents\Code\01_Cégep\04_Étape4\B05_DevGraphique2\ProjetFinal\obj\Debug\
@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Sklaerenn\Documents\Code\01_Cégep\04_Étape4\B05_DevGraphique2\ProjetFinal\App.xaml
-4-1770927209
+4-1231690684
 21484434773
-17-437690492
+171434389419
 19-517040652
-Accueil.xaml;Historique.xaml;JeuPendu.xaml;Preferences.xaml;
+Accueil.xaml;Historique.xaml;NouveauJeu.xaml;PrefsJeu.xaml;
 
-False
+True
 

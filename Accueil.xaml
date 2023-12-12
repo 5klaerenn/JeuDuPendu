@@ -14,9 +14,10 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Label Content="Menu principal" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Button x:Name="bnt_jouer" Content="Jouer" HorizontalAlignment="Left" Margin="111,122,0,0" VerticalAlignment="Top" Height="22" Width="83"/>
+        <Button x:Name="bnt_jouer" Content="Jouer" HorizontalAlignment="Left" Margin="111,122,0,0" VerticalAlignment="Top" Height="22" Width="83" Click="bnt_jouer_Click"/>
         <Button x:Name="btn_prefs" Content="Préférences" HorizontalAlignment="Center" Margin="0,122,0,0" VerticalAlignment="Top" Height="22" Width="84" Click="btn_prefs_Click"/>
         <Button x:Name="btn_historique" Content="Historique" HorizontalAlignment="Left" Margin="408,122,0,0" VerticalAlignment="Top" Height="22" Width="83" Click="btn_historique_Click"/>
+        <Button x:Name="btnQuit" Content="X" HorizontalAlignment="Left" Margin="539,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Background="{x:Null}" BorderBrush="#FFC726AA" Foreground="#FFC726AA" Width="26" Height="25" RenderTransformOrigin="0.324,0.263" Click="btnQuit_Click"/>
 
     </Grid>
 </Window>
