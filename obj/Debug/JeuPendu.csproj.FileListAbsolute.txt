@@ -41,3 +41,5 @@ C:\Users\Sklaerenn\Documents\Code\01_Cégep\04_Étape4\B05_DevGraphique2\ProjetF
 C:\Users\Sklaerenn\Documents\Code\01_Cégep\04_Étape4\B05_DevGraphique2\ProjetFinal\obj\Debug\PrefsJeu.g.cs
 C:\Users\Sklaerenn\Documents\Code\01_Cégep\04_Étape4\B05_DevGraphique2\ProjetFinal\obj\Debug\NouveauJeu.baml
 C:\Users\Sklaerenn\Documents\Code\01_Cégep\04_Étape4\B05_DevGraphique2\ProjetFinal\obj\Debug\PrefsJeu.baml
+C:\Users\Sklaerenn\Documents\Code\01_Cégep\04_Étape4\B05_DevGraphique2\ProjetFinal\obj\Debug\Dictionnaire.g.cs
+C:\Users\Sklaerenn\Documents\Code\01_Cégep\04_Étape4\B05_DevGraphique2\ProjetFinal\obj\Debug\Dictionnaire.baml

@@ -28,7 +28,7 @@
                 <RadioButton x:Name="rbDifficile" Content="Difficile" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
-        <Button x:Name="btnDico" Content="Dictionnaire" HorizontalAlignment="Left" Margin="254,322,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.001,0.653" Width="92"/>
+        <Button x:Name="btnDico" Content="Dictionnaire" HorizontalAlignment="Left" Margin="254,322,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.001,0.653" Width="92" Click="btnDico_Click"/>
         <Button x:Name="btnSave" Content="Enregistrer" HorizontalAlignment="Left" Margin="254,359,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.001,0.653" Width="92"/>
         <Button x:Name="btnCancel" Content="Annuler" HorizontalAlignment="Left" Margin="434,322,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.001,0.653" Width="92" Click="btnCancel_Click"/>
         <Button x:Name="btnQuit" Content="Quitter" HorizontalAlignment="Left" Margin="434,359,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.001,0.653" Width="92" Click="btnQuit_Click"/>

@@ -34,8 +34,8 @@ namespace JeuPendu {
                                                             MessageBoxImage.Question);
 
             if (result == MessageBoxResult.Yes) {
-                acc.Show();
-                this.Hide();
+                acc.ShowDialog();
+                this.Close();
             }
         }
 
@@ -48,6 +48,12 @@ namespace JeuPendu {
             if (result == MessageBoxResult.Yes) {
                 Application.Current.Shutdown();
             }
+        }
+
+        private void btnDico_Click(object sender, RoutedEventArgs e) {
+            Dictionnaire dico = new Dictionnaire(acc, bdd);
+            this.Hide();
+            dico.ShowDialog();
         }
     }
 }
