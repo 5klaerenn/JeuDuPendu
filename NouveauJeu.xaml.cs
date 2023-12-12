@@ -37,6 +37,7 @@ namespace JeuPendu {
             acc = accueil;
             this.bdd = bdd;
             genererBouttons();
+            desactiverBouttons();
             genererParametres();
             imgJeu.Source = new BitmapImage(new Uri(@"/img/accueil.jpg", UriKind.Relative));
 
@@ -51,6 +52,7 @@ namespace JeuPendu {
             if (result == MessageBoxResult.Yes) {
                 imgJeu.Source = new BitmapImage(new Uri(@"/img/accueil.jpg", UriKind.Relative));
                 essais = 0;
+                score = 0;
                 genererBouttons();
                 mot = choisirMot();
                 motcache = remplacerMot(mot);
@@ -94,6 +96,7 @@ namespace JeuPendu {
             motcache = verifierLettre(selectedLetter, mot, motcache);
             lblMot.Content = motcache;
             lblScore.Content = score;
+            lblEssais.Content = (6 - essais);
 
             bool continuer = validerScore(essais, mot, motcache);
 
@@ -112,9 +115,13 @@ namespace JeuPendu {
 
                     bdd.HistoriqueTables.Add(table);
 
+                string message = table.reussi == "ECHEC" ? 
+                       "Dommage! \nLe mot que vous cherchiez était " + mot.ToLower() 
+                       : "Bravo !";
+
                 try {
                     bdd.SaveChanges();
-                    MessageBox.Show(table.reussi + "!");
+                    MessageBox.Show(message);
                 }
                 catch (Exception ex) {
                     MessageBox.Show(ex.Message);
@@ -133,14 +140,16 @@ namespace JeuPendu {
             if (essais > 0 && essais < 6) {
                 imgJeu.Source = new BitmapImage(new Uri($"/img/err0{essais}.jpg", UriKind.Relative));
                 if (motcache == mot) {
-                    lblResult.Content = "VICTOIRE !";
+                    lblDecompte.Content = null;
+                    lblEssais.Content = "VICTOIRE 🙌 ";
                     return false;
                 }
                 return true;
             }
             else if (essais == 6) {
                 imgJeu.Source = new BitmapImage(new Uri($"/img/err0{essais}.jpg", UriKind.Relative));
-                lblResult.Content = "PERDU";
+                lblDecompte.Content = null;
+                lblEssais.Content = "PERDU 😞 ";
                 return false;
             } 
             else {

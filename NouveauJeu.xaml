@@ -17,8 +17,8 @@
         <Image x:Name="imgJeu" HorizontalAlignment="Left" Height="271" Margin="50,48,0,0" VerticalAlignment="Top" Width="211"/>
         <Label Content="Score : " HorizontalAlignment="Left" Margin="456,35,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="lblScore" Content="0" HorizontalAlignment="Left" Margin="530,35,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFF7500" FontSize="14"/>
-        <Label Content="Mot à trouver : " HorizontalAlignment="Left" Margin="382,110,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="lblMot" HorizontalAlignment="Left" Margin="507,106,0,0" VerticalAlignment="Top" Width="250" FontSize="16" Foreground="#FFFF7500" FontWeight="Bold" Content="Cliquez sur Nouvelle Partie"/>
+        <Label Content="Mot à trouver : " HorizontalAlignment="Left" Margin="375,97,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="lblMot" HorizontalAlignment="Left" Margin="500,93,0,0" VerticalAlignment="Top" Width="250" FontSize="16" Foreground="#FFFF7500" FontWeight="Bold" Content="Cliquez sur Nouvelle Partie"/>
         <Grid x:Name="alphabet" Margin="321,196,43,186">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -41,8 +41,10 @@
         <Button x:Name="btnPrefs" Content="Preferences" HorizontalAlignment="Left" Margin="115,423,0,0" VerticalAlignment="Top" Width="87" Click="btnPrefs_Click"/>
         <Button x:Name="btnHistorique" Content="Historique" HorizontalAlignment="Left" Margin="115,463,0,0" VerticalAlignment="Top" Width="87" Click="btnHistorique_Click"/>
         <Button x:Name="btnQuit" Content="Quitter" HorizontalAlignment="Left" Margin="115,503,0,0" VerticalAlignment="Top" Width="87" Click="btnQuit_Click"/>
-        <Label x:Name="lblResult" HorizontalAlignment="Left" Margin="463,142,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-        <Label x:Name="lblLangue" HorizontalAlignment="Left" Margin="50,339,0,0" VerticalAlignment="Top" Width="227" Height="35" FontWeight="Bold" FontSize="14" Foreground="#FFFF7528"/>
-        <Label x:Name="lblNiveau" HorizontalAlignment="Left" Margin="50,379,0,0" VerticalAlignment="Top" Width="227" Height="35" Foreground="#FFFF7528" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="lblResult" HorizontalAlignment="Left" Margin="456,129,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Label x:Name="lblLangue" HorizontalAlignment="Left" Margin="102,339,0,0" VerticalAlignment="Top" Width="144" Height="35" FontWeight="Bold" FontSize="14" Foreground="#FFFF7528"/>
+        <Label x:Name="lblNiveau" HorizontalAlignment="Left" Margin="102,379,0,0" VerticalAlignment="Top" Width="144" Height="35" Foreground="#FFFF7528" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="lblDecompte" Content="Essais restant :" HorizontalAlignment="Left" Margin="376,139,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="lblEssais" HorizontalAlignment="Left" Margin="520,136,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FFFF7500" Content=""/>
     </Grid>
 </Window>
