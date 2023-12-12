@@ -30,20 +30,54 @@ namespace JeuPendu {
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e) {
-            int lang = rbAnglais.IsChecked == true ? 2 : 1;
-            int lvl = rbFacile.IsChecked == true ? 1 : (rbMoyen.IsChecked == true ? 2 : 3);
 
-            Parametre param = findParam(lang, lvl);
-            
-            if(param != null) {
-                Console.WriteLine(param.id);
-            } else {
-                Parametre nParam = new Parametre();
-                nParam.idLangue = lang;
-                nParam.idNiveau = lvl;
-                bdd.Parametres.Add(nParam);
+            if (rbFrancais.IsChecked == true || rbAnglais.IsChecked == true) {
 
-                bdd.SaveChanges();
+                if (rbFacile.IsChecked == true || rbMoyen.IsChecked == true || rbDifficile.IsChecked == true) {
+                    int lang = rbAnglais.IsChecked == true ? 2 : 1;
+                    int lvl = rbFacile.IsChecked == true ? 1 : (rbMoyen.IsChecked == true ? 2 : 3);
+
+                    Parametre pref = findParam(lang, lvl);
+                    Parametre nPref = pref ?? new Parametre();
+
+                    if (pref == null) {
+                        nPref.idLangue = lang;
+                        nPref.idNiveau = lvl;
+                        bdd.Parametres.Add(nPref);
+
+                        try {
+                            bdd.SaveChanges();
+                            MessageBox.Show("Préférences sauvegardées.",
+                              "Information",
+                              MessageBoxButton.OK,
+                              MessageBoxImage.Information);
+                        }
+                        catch (Exception ex) {
+                            Console.WriteLine(ex);
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                    else {
+                        nPref = pref;
+                    }
+
+
+                    Application.Current.Properties["langue"] = nPref.idLangue;
+                    Application.Current.Properties["niveau"] = nPref.idNiveau;
+
+                }
+                else {
+                    MessageBox.Show("Vous devez choisir une difficulté.",
+                    "Attention",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                }
+            }
+            else {
+                MessageBox.Show("Vous devez choisir une langue.",
+                "Attention",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
             }
         }
 
