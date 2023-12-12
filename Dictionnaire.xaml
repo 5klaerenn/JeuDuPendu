@@ -27,8 +27,8 @@
         <Button x:Name="btnAdd" Content="Ajouter" HorizontalAlignment="Left" Margin="195,304,0,0" VerticalAlignment="Top" Width="84" Click="btnAdd_Click"/>
 
         <Grid HorizontalAlignment="Left" Height="241" VerticalAlignment="Top" Margin="480,88,0,0" Width="198">
-            <Button x:Name="btnSupprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="57,221,0,0" VerticalAlignment="Top" Width="84"/>
-            <ListView x:Name="lstMots" d:ItemsSource="{Binding}" Margin="0,-2,0,49" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" DisplayMemberPath="mot" Background="{x:Null}" BorderBrush="#FF688CAF"/>
+            <Button x:Name="btnSupprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="57,221,0,0" VerticalAlignment="Top" Width="84" Click="btnSupprimer_Click"/>
+            <ListView x:Name="lstMots" Margin="0,-2,0,49" IsSynchronizedWithCurrentItem="True" DisplayMemberPath="mot" Background="{x:Null}" BorderBrush="#FF688CAF"/>
         </Grid>
 
         <Button x:Name="btnHome" Content="Accueil" HorizontalAlignment="Left" Margin="480,359,0,0" VerticalAlignment="Top" Width="84" Click="btnHome_Click"/>

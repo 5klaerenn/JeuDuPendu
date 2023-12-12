@@ -27,7 +27,7 @@ namespace JeuPendu {
             this.bdd = bdd;
             cboLangue.DataContext = bdd.Langues.ToList();
             cboNiveau.DataContext = bdd.Niveaux.ToList();
-            lstMots.DataContext = bdd.DictionnaireTables.ToList();
+            lstMots.ItemsSource = bdd.DictionnaireTables.ToList();
         }
 
         private void cboLangue_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -39,20 +39,20 @@ namespace JeuPendu {
         }
 
         private void btnFindAll_Click(object sender, RoutedEventArgs e) {
-            lstMots.DataContext = bdd.DictionnaireTables.ToList();
+            lstMots.ItemsSource = bdd.DictionnaireTables.ToList();
         }
 
         private void updateListe() {
+
             Langue lan = cboLangue.SelectedItem as Langue;
             Niveau niv = cboNiveau.SelectedItem as Niveau;
-                
-            if (lan != null && niv != null) {
-                var query =
-                    from d in bdd.DictionnaireTables
-                    where d.idLangue == lan.id && d.idNiveau == niv.id
-                    select new { d.mot };
 
-                lstMots.DataContext = query.ToList();
+            if (lan != null && niv != null) {
+                var query = from d in bdd.DictionnaireTables
+                            where d.idLangue == lan.id && d.idNiveau == niv.id
+                            select d;
+
+                lstMots.ItemsSource = query.ToList();
             }
         }
 
@@ -61,7 +61,7 @@ namespace JeuPendu {
             Niveau niv = cboNiveau.SelectedItem as Niveau;
 
             DictionnaireTable mot = new DictionnaireTable();
-            mot.mot = txtMot.Text;
+            mot.mot = txtMot.Text.Trim();
             mot.idLangue = lan.id;
             mot.idNiveau = niv.id;
 
@@ -69,12 +69,34 @@ namespace JeuPendu {
 
             try {
                 bdd.SaveChanges();
-                MessageBox.Show(mot.mot + " a bien été ajouté au dictionnaire !");
+                MessageBox.Show(mot.mot + " ajouté avec succès du dictionnaire!",
+                   "Ajouter un mot",
+                   MessageBoxButton.OK,
+                   MessageBoxImage.Information);
+                updateListe();
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
 
+        }
+        private void btnSupprimer_Click(object sender, RoutedEventArgs e) {
+          
+            DictionnaireTable sMot = lstMots.SelectedItem as DictionnaireTable;
+            bdd.DictionnaireTables.Remove(sMot);
+
+            try {
+                bdd.SaveChanges();
+                MessageBox.Show(sMot.mot + " supprimé avec succès du dictionnaire!", 
+                    "Supprimer un mot", 
+                    MessageBoxButton.OK, 
+                    MessageBoxImage.Information);
+                updateListe();
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message); ;
+            }
+            
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e) {
@@ -101,12 +123,5 @@ namespace JeuPendu {
                 Application.Current.Shutdown();
             }
         }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
-
-        }
-
-
     }
 }
